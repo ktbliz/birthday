@@ -11,7 +11,17 @@ class CommandLineInterface
   
   def get_birthday 
     puts "When is your birthday? (Enter MM/DD/YYYY)"
-    @birthday = gets.strip
-  end 
-
+    until @birthday != nil
+      birthday = gets.strip
+      
+      #Need to make this if statement strong, try regex?
+      
+      if birthday.length == 10 
+        @birthday = birthday 
+      else 
+        puts "Please re-enter your birthday in the following format: MM/DD/YYYY"
+      end
+    end 
+  end
+  
 end 
