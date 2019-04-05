@@ -5,6 +5,3 @@ module Birthday
   # Your code goes here...
 end
 
-class Birthday 
-  puts "This is a test"
-end 
