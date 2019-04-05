@@ -1,8 +1,14 @@
+require_relative "./birthday.rb"
+require_relative "./famous_birthdays.rb"
+
 class CommandLineInterface 
+  
+  attr_reader :birthday 
 
   def run 
     welcome
     get_birthday
+    create_birthday
   end 
   
   def welcome
@@ -14,7 +20,7 @@ class CommandLineInterface
     until @birthday != nil
       birthday = gets.strip
       
-      #Need to make this if statement strong, try regex?
+      #Need to make this if statement stronger, try regex?
       
       if birthday.length == 10 
         @birthday = birthday 
@@ -23,5 +29,11 @@ class CommandLineInterface
       end
     end 
   end
+  
+  def create_birthday 
+    Birthday.new(self.birthday)
+  end 
+  
+  
   
 end 
