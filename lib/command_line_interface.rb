@@ -2,7 +2,7 @@ require_relative "./birthday.rb"
 require_relative "./famous_birthdays.rb"
 require_relative "./birthday_stats.rb"
 
-require "pry"
+#require "pry"
 
 class CommandLineInterface 
   
@@ -70,7 +70,7 @@ class CommandLineInterface
   end 
   
   
-  binding.pry
+  #binding.pry
   
   
   
