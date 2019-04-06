@@ -2,6 +2,8 @@ require_relative "./birthday.rb"
 require_relative "./famous_birthdays.rb"
 require_relative "./birthday_stats.rb"
 
+require "pry"
+
 class CommandLineInterface 
   
   attr_reader :birth_date, :birthday, :birthday_stats 
@@ -68,7 +70,7 @@ class CommandLineInterface
   end 
   
   
-  
+  binding.pry
   
   
   
