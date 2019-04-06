@@ -1,5 +1,6 @@
 require_relative "./birthday.rb"
 require_relative "./famous_birthdays.rb"
+require_relative "./birthday_stats.rb"
 
 class CommandLineInterface 
   
@@ -9,6 +10,7 @@ class CommandLineInterface
     welcome
     get_birthday
     create_birthday
+    menu 
   end 
   
   def welcome
@@ -33,6 +35,31 @@ class CommandLineInterface
   def create_birthday 
     Birthday.new(self.birthday)
   end 
+  
+  def menu
+    loop do 
+      
+    puts "What would you like to know about your birthday? Select by entering the number (e.g., 1). Enter 'exit' to exit."
+    puts "1. Famous people born on my birthday"
+    puts "2. "
+    input = gets.strip
+    puts "Please enter a valid selection." unless input == "1" || input == "2" || input == "exit"
+    case input 
+      when "1"
+        puts "Famous people"
+      when "2"
+        puts "TBD"
+      when "exit"
+        puts "Thank you for visiting and may all your birthday wishes come true!"
+        break
+     end 
+     
+    end 
+    
+  end 
+  
+  
+  
   
   
   

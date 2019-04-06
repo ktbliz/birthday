@@ -1,7 +1,9 @@
 class Birthday 
   
-  def initialize(birthday)
+  attr_reader :birthday 
   
+  def initialize(birthday)
+    @birthday = birthday 
   end 
   
   def birthday_format 
