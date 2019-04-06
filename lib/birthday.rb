@@ -6,6 +6,7 @@ class Birthday
   
   def initialize(birthday)
     @birthday = birthday 
+    birthday_format
   end 
   
   def birthday_format 
@@ -24,6 +25,6 @@ class Birthday
     
   end 
     
-  binding.pry 
+  #binding.pry 
 
 end 
