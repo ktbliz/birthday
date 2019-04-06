@@ -32,6 +32,10 @@ class CommandLineInterface
     end 
   end
   
+  def birthday_validator(birthday)
+    
+  end 
+  
   def create_birthday 
     Birthday.new(self.birthday)
   end 

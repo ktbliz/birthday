@@ -1,3 +1,5 @@
+require "pry"
+
 class Birthday 
   
   attr_reader :birthday 
@@ -7,13 +9,13 @@ class Birthday
   end 
   
   def birthday_format 
-    
+    date_array = self.birthday.split("/")
   end 
   
   def countdown 
     
   end 
     
-
+  binding.pry 
 
 end 
