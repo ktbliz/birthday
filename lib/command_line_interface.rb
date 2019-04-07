@@ -27,7 +27,7 @@ class CommandLineInterface
       
       #Need to make this if statement stronger, try regex?
       
-      if birthday.length == 10 
+      if birthday.match(/[01][0-9]\W[0-3][0-9]\W[12][019][0-9]{2}/)
         @birth_date = birthday 
       else 
         puts "Please re-enter your birthday in the following format: MM/DD/YYYY"
@@ -36,6 +36,27 @@ class CommandLineInterface
   end
   
   def birthday_validator(birthday)
+    
+    date_array = birthday.split("/")
+    month = date_array[0].to_i
+    day = date_array[1].to_i
+    year = date_array[2].to_i
+    31days = [1, 3, 5, 7, 8, 10, 12]
+    
+    month > 0 && month <= 12 ? m = true : m = false 
+    day > 0 && day <= 31 ? d = true : d = false 
+    year >= 1901 && year <= 2018 ? y = true : y = false 
+   
+    if day == 31
+      31days.include?(month) ? 31_test = true : 31_test = false 
+    end 
+      
+    if month == 2 
+      day >= 28 ? feb_test = true : feb_test = false 
+    end 
+    
+    true if m && d && y && 31_test && feb_test
+    
     
   end 
   
