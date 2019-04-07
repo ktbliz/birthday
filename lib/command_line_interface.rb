@@ -1,8 +1,9 @@
 require_relative "./birthday.rb"
-require_relative "./famous_birthdays.rb"
 require_relative "./birthday_stats.rb"
+require_relative "./famous_birthdays.rb"
 
 #require "pry"
+
 
 class CommandLineInterface 
   
@@ -21,33 +22,37 @@ class CommandLineInterface
   end 
   
   def get_birthday 
+    
     puts "When is your birthday? (Enter MM/DD/YYYY)"
+    
     until @birth_date != nil
-      birthday = gets.strip
+    
+      birth_date = gets.strip
       
-      #Need to make this if statement stronger, try regex?
-      
-      if birthday_validator(birthday)
-        @birth_date = birthday 
-      elsif birthday.match(/[01][0-9]\W[0-3][0-9]\W[12][019][0-9]{2}/) 
-        puts "The birthday you've entered may not be valid. Please note the Birthday gem only covers birthdays between 1901 and 2018."
+      if birth_date_validator(birth_date)
+        @birth_date = birth_date 
+      elsif birth_date.match(/[01][0-9]\W[0-3][0-9]\W[12][019][0-9]{2}/) 
+        puts "The birthday you've entered may not be valid. Please re-enter your birthday in the following format: MM/DD/YYYY. Note that the Birthday gem only covers birthdays between 1901 and 2018."
       else 
         puts "Please re-enter your birthday in the following format: MM/DD/YYYY"
       end
+      
     end 
+    
   end
   
-  def birthday_validator(birthday)
+  def birth_date_validator(birth_date)
     
-    date_array = birthday.split("/")
+    date_array = birth_date.split("/")
     month = date_array[0].to_i
     day = date_array[1].to_i
     year = date_array[2].to_i
-    months31 = [1, 3, 5, 7, 8, 10, 12]
     
     month > 0 && month <= 12 ? m = true : m = false 
     day > 0 && day <= 31 ? d = true : d = false 
     year >= 1901 && year <= 2018 ? y = true : y = false 
+    
+    months31 = [1, 3, 5, 7, 8, 10, 12]
    
     if day == 31
       months31.include?(month) ? test31 = true : test31 = false 
