@@ -2,15 +2,18 @@
 
 class Birthday 
   
-  attr_reader :birthday, :month_num, :day, :year, :month_name 
+  attr_reader :birth_date, :month_num, :day, :year, :month_name 
   
-  def initialize(birthday)
-    @birthday = birthday 
+  
+  def initialize(birth_date)
+    @birth_date = birth_date
     birthday_format
   end 
   
+  
   def birthday_format 
-    date_array = self.birthday.split("/")
+    
+    date_array = self.birth_date.split("/")
     @month_num = date_array[0]
     @day = date_array[1]
     @year = date_array[2]

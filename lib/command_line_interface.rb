@@ -9,6 +9,7 @@ class CommandLineInterface
   
   attr_reader :birth_date, :birthday, :birthday_stats 
 
+
   def run 
     welcome
     get_birthday
@@ -17,9 +18,11 @@ class CommandLineInterface
     menu 
   end 
   
+  
   def welcome
     puts "Welcome to the Birthday gem - where it's all about your birthday all the time!\n\n"
   end 
+  
   
   def get_birthday 
     
@@ -40,6 +43,7 @@ class CommandLineInterface
     end 
     
   end
+  
   
   def birth_date_validator(birth_date)
     
@@ -70,40 +74,54 @@ class CommandLineInterface
     
   end 
   
+  
   def create_birthday 
     @birthday = Birthday.new(self.birth_date)
   end 
+  
   
   def create_birthday_stats
     @birthday_stats = BirthdayStats.new(create_birthday)
   end 
   
+  
   def menu
+    
+    puts "\n\nWhat would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
+    menu_items
     
     loop do 
       
-    puts "\n\nWhat would you like to know about your birthday? Select by entering the number (e.g., 1). Enter 'exit' to exit.\n\n"
-    puts "1. Days until my birthday"
-    puts "2. Days that I've been alive"
-    input = gets.strip
-    puts "\n\nPlease enter a valid selection." unless input == "1" || input == "2" || input == "exit"
-    case input 
-      when "1"
-        puts @birthday_stats.countdown
-      when "2"
-        puts @birthday_stats.days_alive 
-      when "exit"
-        puts "Thank you for visiting and may all your birthday wishes come true!"
-        break
-     end 
-     
+      input = gets.strip
+      
+      puts "\n\nPlease enter a valid selection." unless input == "1" || input == "2" || input == "exit"
+      
+      case input 
+        when "1"
+          puts @birthday_stats.countdown
+        when "2"
+          puts @birthday_stats.days_alive 
+        when "exit"
+          puts "\n\nThank you for visiting and may all your birthday wishes come true!"
+          break
+       end 
+       
+       puts "\n\nWhat else would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
+       menu_items
+       
     end 
     
   end 
   
   
+  def menu_items 
+    
+    puts "1. Days until my birthday"
+    puts "2. Days that I've been alive"
+    
+  end 
+  
+  
   #binding.pry
-  
-  
   
 end 
