@@ -2,7 +2,7 @@ require_relative "./birthday.rb"
 require_relative "./famous_birthdays.rb"
 require_relative "./birthday_stats.rb"
 
-#require "pry"
+require "pry"
 
 class CommandLineInterface 
   
@@ -27,8 +27,10 @@ class CommandLineInterface
       
       #Need to make this if statement stronger, try regex?
       
-      if birthday.match(/[01][0-9]\W[0-3][0-9]\W[12][019][0-9]{2}/)
+      if birthday_validator(birthday)
         @birth_date = birthday 
+      elsif birthday.match(/[01][0-9]\W[0-3][0-9]\W[12][019][0-9]{2}/) 
+        puts "The birthday you've entered may not be valid. Please note the Birthday gem only covers birthdays between 1901 and 2018."
       else 
         puts "Please re-enter your birthday in the following format: MM/DD/YYYY"
       end
@@ -41,22 +43,25 @@ class CommandLineInterface
     month = date_array[0].to_i
     day = date_array[1].to_i
     year = date_array[2].to_i
-    31days = [1, 3, 5, 7, 8, 10, 12]
+    months31 = [1, 3, 5, 7, 8, 10, 12]
     
     month > 0 && month <= 12 ? m = true : m = false 
     day > 0 && day <= 31 ? d = true : d = false 
     year >= 1901 && year <= 2018 ? y = true : y = false 
    
     if day == 31
-      31days.include?(month) ? 31_test = true : 31_test = false 
+      months31.include?(month) ? test31 = true : test31 = false 
+    else 
+      test31 = true 
     end 
       
     if month == 2 
       day >= 28 ? feb_test = true : feb_test = false 
+    else 
+      feb_test = true
     end 
     
-    true if m && d && y && 31_test && feb_test
-    
+    true if m && d && y && test31 && feb_test
     
   end 
   
@@ -91,7 +96,7 @@ class CommandLineInterface
   end 
   
   
-  #binding.pry
+  binding.pry
   
   
   
