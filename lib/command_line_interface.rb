@@ -18,7 +18,7 @@ class CommandLineInterface
   end 
   
   def welcome
-    puts "Welcome to the Birthday gem - where it's all about your birthday all the time!"
+    puts "Welcome to the Birthday gem - where it's all about your birthday all the time!\n\n"
   end 
   
   def get_birthday 
@@ -79,13 +79,14 @@ class CommandLineInterface
   end 
   
   def menu
+    
     loop do 
       
-    puts "What would you like to know about your birthday? Select by entering the number (e.g., 1). Enter 'exit' to exit."
+    puts "\n\nWhat would you like to know about your birthday? Select by entering the number (e.g., 1). Enter 'exit' to exit.\n\n"
     puts "1. Days until my birthday"
     puts "2. Days that I've been alive"
     input = gets.strip
-    puts "Please enter a valid selection." unless input == "1" || input == "2" || input == "exit"
+    puts "\n\nPlease enter a valid selection." unless input == "1" || input == "2" || input == "exit"
     case input 
       when "1"
         puts @birthday_stats.countdown
