@@ -2,7 +2,7 @@ require_relative "./birthday.rb"
 require_relative "./famous_birthdays.rb"
 require_relative "./birthday_stats.rb"
 
-require "pry"
+#require "pry"
 
 class CommandLineInterface 
   
@@ -56,12 +56,12 @@ class CommandLineInterface
     end 
       
     if month == 2 
-      day >= 28 ? feb_test = true : feb_test = false 
+      day <= 28 ? feb_test = true : feb_test = false 
     else 
       feb_test = true
     end 
     
-    true if m && d && y && test31 && feb_test
+    return true if m && d && y && test31 && feb_test
     
   end 
   
@@ -96,7 +96,7 @@ class CommandLineInterface
   end 
   
   
-  binding.pry
+  #binding.pry
   
   
   
