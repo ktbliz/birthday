@@ -87,7 +87,7 @@ class CommandLineInterface
   
   def menu
     
-    puts "\n\nWhat would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
+    puts "\nWhat would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
     menu_items
     
     loop do 
@@ -98,15 +98,15 @@ class CommandLineInterface
       
       case input 
         when "1"
-          puts @birthday_stats.countdown
+          puts "\n#{@birthday_stats.countdown}"
         when "2"
-          puts @birthday_stats.days_alive 
+          puts "\n#{@birthday_stats.days_alive}" 
         when "exit"
-          puts "\n\nThank you for visiting and may all your birthday wishes come true!"
+          puts "\nThank you for visiting and may all your birthday wishes come true!"
           break
        end 
        
-       puts "\n\nWhat else would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
+       puts "\nWhat else would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
        menu_items
        
     end 
