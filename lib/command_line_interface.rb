@@ -116,8 +116,12 @@ class CommandLineInterface
   
   def menu_items 
     
-    puts "1. Days until my birthday"
+    puts "1. Days until my next birthday"
     puts "2. Days that I've been alive"
+    puts "3. "
+    puts "4. "
+    puts "5. "
+    puts "6. "
     
   end 
   
