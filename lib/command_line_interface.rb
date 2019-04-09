@@ -20,13 +20,12 @@ class CommandLineInterface
   
   
   def welcome
-    puts "Welcome to the Birthday gem - where it's all about your birthday all the time!\n\n"
+    puts "Welcome to the Birthday gem - where it's all about your birthday all the time!"
+    puts "When is your birthday? (Enter MM/DD/YYYY)"
   end 
   
   
   def get_birthday 
-    
-    puts "When is your birthday? (Enter MM/DD/YYYY)"
     
     until @birth_date != nil
     
@@ -87,7 +86,7 @@ class CommandLineInterface
   
   def menu
     
-    puts "\nWhat would you like to know about your birthday? Select by entering the number (for example: '1').\n\n"
+    puts "\nWhat would you like to know about your birthday? (Enter the number, ex: 1)"
     menu_items
     
     loop do 
@@ -97,8 +96,7 @@ class CommandLineInterface
       menu_selections = ["1", "2", "3", "4", "5", "6", "7", "8"]
       
       unless menu_selections.include?(input)
-        puts "\n\nPlease enter a valid selection."
-        puts "Select by entering the number (for example: '1').\n\n"
+        puts "\n\nPlease enter a valid selection. (Enter the number, ex: 1)"
         menu_items
       end 
       
@@ -116,13 +114,21 @@ class CommandLineInterface
         when "6"
           puts "6"
         when "7"
+          @birth_date = nil 
+          puts "\nPlease enter another birthday (MM/DD/YYYY)"
+          get_birthday
+          create_birthday
+          create_birthday_stats
         when "8"
           puts "\nThank you for visiting and may all your birthday wishes come true!"
           break
        end 
        
-       puts "\nWhat else would you like to know about your birthday? Select by entering the number (for example: '1').\n\n"
-       menu_items
+       if menu_selections.include?(input)
+         puts "\nWhat else would you like to know about your birthday? (Enter the number, ex: 1)" unless input == "7"
+         puts "\nWhat would you like to know about your birthday? (Enter the number, ex: 1)" if input == "7"
+         menu_items
+       end       
        
     end 
     
