@@ -87,15 +87,20 @@ class CommandLineInterface
   
   def menu
     
-    puts "\nWhat would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
+    puts "\nWhat would you like to know about your birthday? Select by entering the number (for example: '1').\n\n"
     menu_items
     
     loop do 
       
       input = gets.strip
       
-      menu_selections = ["1", "2", "3", "4", "5", "6", "exit"]
-      puts "\n\nPlease enter a valid selection." unless menu_selections.include?(input)
+      menu_selections = ["1", "2", "3", "4", "5", "6", "7", "8"]
+      
+      unless menu_selections.include?(input)
+        puts "\n\nPlease enter a valid selection."
+        puts "Select by entering the number (for example: '1').\n\n"
+        menu_items
+      end 
       
       case input 
         when "1"
@@ -110,12 +115,13 @@ class CommandLineInterface
           puts "\n#{@birthday_stats.chinese_zodiac}" 
         when "6"
           puts "6"
-        when "exit"
+        when "7"
+        when "8"
           puts "\nThank you for visiting and may all your birthday wishes come true!"
           break
        end 
        
-       puts "\nWhat else would you like to know about your birthday? Select by entering the number (for example: '1'). Enter 'exit' to exit.\n\n"
+       puts "\nWhat else would you like to know about your birthday? Select by entering the number (for example: '1').\n\n"
        menu_items
        
     end 
@@ -127,10 +133,12 @@ class CommandLineInterface
     
     puts "1. Days until my next birthday"
     puts "2. Days that I've been alive"
-    puts "3. "
-    puts "4. "
-    puts "5. "
+    puts "3. My birthstone"
+    puts "4. My Western zodiac sign"
+    puts "5. My Eastern zodiac animal"
     puts "6. "
+    puts "7. Choose another birthday!"
+    puts "8. Exit"
     
   end 
   
