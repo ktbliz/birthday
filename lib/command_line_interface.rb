@@ -94,13 +94,22 @@ class CommandLineInterface
       
       input = gets.strip
       
-      puts "\n\nPlease enter a valid selection." unless input == "1" || input == "2" || input == "exit"
+      menu_selections = ["1", "2", "3", "4", "5", "6", "exit"]
+      puts "\n\nPlease enter a valid selection." unless menu_selections.include?(input)
       
       case input 
         when "1"
           puts "\n#{@birthday_stats.countdown}"
         when "2"
           puts "\n#{@birthday_stats.days_alive}" 
+        when "3"
+          puts "\n#{@birthday_stats.birthstone}" 
+        when "4"
+          puts "\n#{@birthday_stats.zodiac_sign}" 
+        when "5"
+          puts "\n#{@birthday_stats.chinese_zodiac}" 
+        when "6"
+          puts "6"
         when "exit"
           puts "\nThank you for visiting and may all your birthday wishes come true!"
           break
