@@ -7,7 +7,7 @@ require_relative "./famous_birthday_scraper.rb"
 
 class CommandLineInterface 
   
-  attr_reader :birth_date, :birthday, :birthday_stats 
+  attr_reader :birth_date, :birthday, :birthday_stats, :famous_birthday_scraper 
 
 
   def run 
@@ -15,6 +15,7 @@ class CommandLineInterface
     get_birthday
     create_birthday
     create_birthday_stats
+    create_famous_birthday_scraper
     menu 
   end 
   
@@ -83,6 +84,10 @@ class CommandLineInterface
     @birthday_stats = BirthdayStats.new(create_birthday)
   end 
   
+  def create_famous_birthday_scraper
+    @famous_birthday_scraper = FamousBirthdayScraper.new(create_birthday)
+  end 
+  
   
   def menu
     
@@ -112,13 +117,14 @@ class CommandLineInterface
         when "5"
           puts "\n#{@birthday_stats.chinese_zodiac}" 
         when "6"
-          puts "6"
+          famous_birthdays
         when "7"
           @birth_date = nil 
           puts "\nPlease enter another birthday (MM/DD/YYYY)"
           get_birthday
           create_birthday
           create_birthday_stats
+          create_famous_birthday_scraper
         when "8"
           puts "\nThank you for visiting and may all your birthday wishes come true!"
           break
@@ -136,7 +142,6 @@ class CommandLineInterface
   
   
   def menu_items 
-    
     puts "1. Days until my next birthday"
     puts "2. Days that I've been alive"
     puts "3. My birthstone"
@@ -145,9 +150,13 @@ class CommandLineInterface
     puts "6. Famous people who share my birthday"
     puts "7. Choose another birthday!"
     puts "8. Exit"
-    
   end 
   
+  def famous_birthdays
+    @famous_birthday_scraper.celebrities.each do |celebrity|
+      puts "#{celebrity[:name]} (#{celebrity[:year_born]}, #{celebrity[:tagline]}"
+    end 
+  end 
   
   #binding.pry
   

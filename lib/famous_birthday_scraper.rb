@@ -1,11 +1,11 @@
 require_relative "./birthday.rb"
-require "pry"
-require "nokogiri"
-require "open-uri"
+#require "pry"
+#require "nokogiri"
+#require "open-uri"
 
 class FamousBirthdayScraper
   
-  attr_reader :birthday 
+  attr_reader :birthday, :celebrities 
 
   def initialize(birthday_object)
     @birthday = birthday_object if birthday_object.class == Birthday 
@@ -18,19 +18,19 @@ class FamousBirthdayScraper
     
     list = doc.css("li.archive-list-item")
     
-    celebrities = []
+    @celebrities = []
     
     list.each { |celebrity|
       celebrity_info = {}
       celebrity_info[:name] = name_formatting(celebrity.css("h3.entry-title a.u-url").text.strip)
       celebrity_info[:year_born] = celebrity.css("h3.entry-title span a").text.strip
       celebrity_info[:tagline] = celebrity.css("div.entry-summary").text.strip
-      celebrities << celebrity_info
+      @celebrities << celebrity_info
     }
     
-    celebrities
+    @celebrities
     
-    binding.pry
+    #binding.pry
   end
   
   def name_formatting(raw_name)
@@ -38,6 +38,6 @@ class FamousBirthdayScraper
     name = "#{name_array[1]} #{name_array[0]}"
   end 
 
-binding.pry
+#binding.pry
 
 end 
