@@ -154,7 +154,7 @@ class CommandLineInterface
   
   def famous_birthdays
     @famous_birthday_scraper.celebrities.each do |celebrity|
-      puts "#{celebrity[:name]} (#{celebrity[:year_born]}, #{celebrity[:tagline]}"
+      puts "#{celebrity[:name]} (#{celebrity[:year_born]}), #{celebrity[:tagline]}"
     end 
   end 
   
