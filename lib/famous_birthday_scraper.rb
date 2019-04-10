@@ -22,7 +22,7 @@ class FamousBirthdayScraper
     
     list.each { |celebrity|
       celebrity_info = {}
-      celebrity_info[:name] = celebrity.css("h3.entry-title a.u-url").text.strip
+      celebrity_info[:name] = name_formatting(celebrity.css("h3.entry-title a.u-url").text.strip)
       celebrity_info[:year_born] = celebrity.css("h3.entry-title span a").text.strip
       celebrity_info[:tagline] = celebrity.css("div.entry-summary").text.strip
       celebrities << celebrity_info
@@ -32,6 +32,11 @@ class FamousBirthdayScraper
     
     binding.pry
   end
+  
+  def name_formatting(raw_name)
+    name_array = raw_name.split(",")
+    name = "#{name_array[1]} #{name_array[0]}"
+  end 
 
 binding.pry
 
