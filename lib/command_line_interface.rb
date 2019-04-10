@@ -142,7 +142,7 @@ class CommandLineInterface
     puts "3. My birthstone"
     puts "4. My Western zodiac sign"
     puts "5. My Eastern zodiac animal"
-    puts "6. "
+    puts "6. Famous people who share my birthday"
     puts "7. Choose another birthday!"
     puts "8. Exit"
     
