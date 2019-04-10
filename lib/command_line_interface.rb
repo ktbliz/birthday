@@ -107,15 +107,15 @@ class CommandLineInterface
       
       case input 
         when "1"
-          puts "\n#{@birthday_stats.countdown}"
+          puts "\n#{@birthday_stats.countdown}".colorize(:light_blue)
         when "2"
-          puts "\n#{@birthday_stats.days_alive}" 
+          puts "\n#{@birthday_stats.days_alive}".colorize(:light_blue)
         when "3"
-          puts "\n#{@birthday_stats.birthstone}" 
+          puts "\n#{@birthday_stats.birthstone}".colorize(:light_blue) 
         when "4"
-          puts "\n#{@birthday_stats.zodiac_sign}" 
+          puts "\n#{@birthday_stats.zodiac_sign}".colorize(:light_blue) 
         when "5"
-          puts "\n#{@birthday_stats.chinese_zodiac}" 
+          puts "\n#{@birthday_stats.chinese_zodiac}".colorize(:light_blue) 
         when "6"
           famous_birthdays
         when "7"
@@ -154,7 +154,7 @@ class CommandLineInterface
   
   def famous_birthdays
     @famous_birthday_scraper.celebrities.each do |celebrity|
-      puts "#{celebrity[:name]} (#{celebrity[:year_born]}), #{celebrity[:tagline]}"
+      puts "#{celebrity[:name]} (#{celebrity[:year_born]}), #{celebrity[:tagline]}".colorize(:light_blue)
     end 
   end 
   
