@@ -9,6 +9,8 @@ class FamousBirthdayScraper
   end
   
   
+  #The celebrities_scraper method scrapes who2.com to create an array of hashes, each containing info on one celebrity that shares the given birthday
+  
   def celebrities_scraper
     doc = Nokogiri::HTML(open("https://www.who2.com/born-on/#{self.birthday.month_name}-#{self.birthday.day}/"))
     list = doc.css("li.archive-list-item")
@@ -26,6 +28,8 @@ class FamousBirthdayScraper
     @celebrities
   end
   
+  
+  #The name_formatting method re-formats the scraped celebrity names (switches the order of first and last names), and is used by the celebrity_scraper method
   
   def name_formatting(raw_name)
     name_array = raw_name.split(",")

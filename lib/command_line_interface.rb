@@ -42,6 +42,8 @@ class CommandLineInterface
   end
   
   
+  #The birth_date_validator makes sure the entered birthday follows the MM/DD/YYYY format, is a valid birthday, and falls within the accepted range (1901 to 2018)
+  
   def birth_date_validator(birth_date)
     
     date_array = birth_date.split("/")
