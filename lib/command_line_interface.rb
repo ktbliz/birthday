@@ -1,5 +1,5 @@
 require_relative "./birthday.rb"
-require_relative "./birthday_stats.rb"
+require_relative "./birthday_stats_scraper.rb"
 require_relative "./famous_birthday_scraper.rb"
 
 #require "pry"
@@ -14,7 +14,7 @@ class CommandLineInterface
     welcome
     get_birthday
     create_birthday
-    create_birthday_stats
+    create_birthday_stats_scraper
     create_famous_birthday_scraper
     menu 
   end 
@@ -80,8 +80,8 @@ class CommandLineInterface
   end 
   
   
-  def create_birthday_stats
-    @birthday_stats = BirthdayStats.new(create_birthday)
+  def create_birthday_stats_scraper
+    @birthday_stats = BirthdayStatsScraper.new(create_birthday)
   end 
   
   def create_famous_birthday_scraper
@@ -123,7 +123,7 @@ class CommandLineInterface
           puts "\nPlease enter another birthday (MM/DD/YYYY)"
           get_birthday
           create_birthday
-          create_birthday_stats
+          create_birthday_stats_scraper
           create_famous_birthday_scraper
         when "8"
           puts "\nThank you for visiting and may all your birthday wishes come true!"

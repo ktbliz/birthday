@@ -1,4 +1,3 @@
-#require "pry"
 
 class Birthday 
   
@@ -15,7 +14,7 @@ class Birthday
     
     date_array = self.birth_date.split("/")
     @month_num = date_array[0]
-    @day = date_array[1]
+    @day = date_array[1].to_i
     @year = date_array[2]
     
     month_nums = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"] 
@@ -24,10 +23,5 @@ class Birthday
     
   end 
   
-  def countdown 
-    
-  end 
-    
-  #binding.pry 
-
+  
 end 

@@ -1,10 +1,6 @@
 require_relative "./birthday.rb"
-#require "open-uri"
-#require "nokogiri"
-#require "pry"
 
-
-class BirthdayStats
+class BirthdayStatsScraper
   
   attr_reader :birthday, :countdown, :turning, :days_alive, :zodiac_sign, :chinese_zodiac, :birthstone 
   
