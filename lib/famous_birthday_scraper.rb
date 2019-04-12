@@ -12,7 +12,6 @@ class FamousBirthdayScraper
   
   def celebrities_scraper
     doc = Nokogiri::HTML(open("https://www.who2.com/born-on/#{self.birthday.month_name}-#{self.birthday.day}/"))
-    
     list = doc.css("li.archive-list-item")
     
     @celebrities = []
@@ -26,15 +25,13 @@ class FamousBirthdayScraper
     }
     
     @celebrities
-    
-    #binding.pry
   end
+  
   
   def name_formatting(raw_name)
     name_array = raw_name.split(",")
     name = "#{name_array[1]} #{name_array[0]}"
   end 
 
-#binding.pry
 
 end 
