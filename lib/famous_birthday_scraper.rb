@@ -15,12 +15,12 @@ class FamousBirthdayScraper
     
     @celebrities = []
     
-    list.each { |celebrity|
-      celebrity_info = {}
-      celebrity_info[:name] = name_formatting(celebrity.css("h3.entry-title a.u-url").text.strip)
-      celebrity_info[:year_born] = celebrity.css("h3.entry-title span a").text.strip
-      celebrity_info[:tagline] = celebrity.css("div.entry-summary").text.strip
-      @celebrities << celebrity_info
+    list.each { |person|
+      person_info = {}
+      person_info[:name] = name_formatting(person.css("h3.entry-title a.u-url").text.strip)
+      person_info[:year_born] = person.css("h3.entry-title span a").text.strip
+      person_info[:tagline] = person.css("div.entry-summary").text.strip
+      @celebrities << person_info
     }
     
     @celebrities
