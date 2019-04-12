@@ -1,7 +1,4 @@
 require_relative "./birthday.rb"
-#require "pry"
-#require "nokogiri"
-#require "open-uri"
 
 class FamousBirthdayScraper
   

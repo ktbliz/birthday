@@ -2,12 +2,9 @@ require_relative "./birthday.rb"
 require_relative "./birthday_stats_scraper.rb"
 require_relative "./famous_birthday_scraper.rb"
 
-#require "pry"
-
-
 class CommandLineInterface 
   
-  attr_reader :birth_date, :birthday, :birthday_stats, :famous_birthday_scraper 
+  attr_reader :birth_date, :birthday, :birthday_stats_scraper, :famous_birthday_scraper 
 
 
   def run 
@@ -81,7 +78,7 @@ class CommandLineInterface
   
   
   def create_birthday_stats_scraper
-    @birthday_stats = BirthdayStatsScraper.new(create_birthday)
+    @birthday_stats_scraper = BirthdayStatsScraper.new(create_birthday)
   end 
   
   def create_famous_birthday_scraper
@@ -107,15 +104,15 @@ class CommandLineInterface
       
       case input 
         when "1"
-          puts "\n#{@birthday_stats.countdown}".colorize(:light_blue)
+          puts "\n#{@birthday_stats_scraper.countdown}".colorize(:light_blue)
         when "2"
-          puts "\n#{@birthday_stats.days_alive}".colorize(:light_blue)
+          puts "\n#{@birthday_stats_scraper.days_alive}".colorize(:light_blue)
         when "3"
-          puts "\n#{@birthday_stats.birthstone}".colorize(:light_blue) 
+          puts "\n#{@birthday_stats_scraper.birthstone}".colorize(:light_blue) 
         when "4"
-          puts "\n#{@birthday_stats.zodiac_sign}".colorize(:light_blue) 
+          puts "\n#{@birthday_stats_scraper.zodiac_sign}".colorize(:light_blue) 
         when "5"
-          puts "\n#{@birthday_stats.chinese_zodiac}".colorize(:light_blue) 
+          puts "\n#{@birthday_stats_scraper.chinese_zodiac}".colorize(:light_blue) 
         when "6"
           famous_birthdays
         when "7"
@@ -158,6 +155,5 @@ class CommandLineInterface
     end 
   end 
   
-  #binding.pry
   
 end 
