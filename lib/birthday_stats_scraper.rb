@@ -6,7 +6,6 @@ class BirthdayStatsScraper
   
   def initialize(birthday_object)
     @birthday = birthday_object if birthday_object.class == Birthday 
-    stats_scraper
   end
   
   

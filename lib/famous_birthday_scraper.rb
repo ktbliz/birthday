@@ -6,7 +6,6 @@ class FamousBirthdayScraper
 
   def initialize(birthday_object)
     @birthday = birthday_object if birthday_object.class == Birthday 
-    celebrities_scraper
   end
   
   

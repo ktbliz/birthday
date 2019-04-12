@@ -79,10 +79,12 @@ class CommandLineInterface
   
   def create_birthday_stats_scraper
     @birthday_stats_scraper = BirthdayStatsScraper.new(create_birthday)
+    @birthday_stats_scraper.tap { |x| x.stats_scraper }
   end 
   
   def create_famous_birthday_scraper
     @famous_birthday_scraper = FamousBirthdayScraper.new(create_birthday)
+    @famous_birthday_scraper.tap { |x| x.celebrities_scraper }
   end 
   
   
