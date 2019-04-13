@@ -29,10 +29,10 @@ class CommandLineInterface
     
       birth_date = gets.strip
       
-      if birth_date_validator(birth_date) && birth_date.match(/[01][0-9]\W[0-3][0-9]\W[12][0-9]{3}/) 
+      if birth_date_validator(birth_date) && birth_date.match(/\A[01][0-9]\W[0-3][0-9]\W[12][0-9]{3}\z/) 
         @birth_date = birth_date 
-      elsif birth_date.match(/[01][0-9]\W[0-3][0-9]\W[12][0-9]{3}/) 
-        puts "The birthday you've entered may not be valid. Please re-enter your birthday in the following format: MM/DD/YYYY. Note that the Birthday gem only covers birthdays between 1901 and 2018."
+      elsif birth_date.match(/\A[01][0-9]\W[0-3][0-9]\W[12][0-9]{3}\z/) 
+        puts "The birthday you've entered may not be valid. Note that the Birthday gem only covers birthdays between 1901 and 2018.  Please re-enter your birthday in the following format: MM/DD/YYYY."
       else 
         puts "Please re-enter your birthday in the following format: MM/DD/YYYY"
       end
