@@ -64,12 +64,18 @@ class CommandLineInterface
     end 
       
     if month == 2 
-      day <= 28 ? feb_test = true : feb_test = false 
+      day <= 29 ? feb_test = true : feb_test = false 
     else 
       feb_test = true
     end 
     
-    return true if m && d && y && test31 && feb_test
+    if month == 2 && day == 29
+      year % 4 == 0 ? leap_test = true : leap_test = false
+    else
+      leap_test = true
+    end 
+    
+    return true if m && d && y && test31 && feb_test && leap_test
     
   end 
   
