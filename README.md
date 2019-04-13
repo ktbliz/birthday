@@ -2,7 +2,7 @@
 
 The Birthday gems scrapes fun facts on birthdays between 1901 and 2018, including: days until next birthday, number of days since birth, gemstone, western zodiac sign, eastern zodiac sign, and famous people also born on the given birthday.
 
-The fun facts scraped from two websites: 
+The fun facts are scraped from two websites: 
 
 My Birthday Ninja (https://mybirthday.ninja/)
 
