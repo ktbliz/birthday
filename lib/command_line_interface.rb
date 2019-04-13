@@ -29,7 +29,7 @@ class CommandLineInterface
     
       birth_date = gets.strip
       
-      if birth_date_validator(birth_date)
+      if birth_date_validator(birth_date) && birth_date.match(/[01][0-9]\W[0-3][0-9]\W[12][0-9]{3}/) 
         @birth_date = birth_date 
       elsif birth_date.match(/[01][0-9]\W[0-3][0-9]\W[12][0-9]{3}/) 
         puts "The birthday you've entered may not be valid. Please re-enter your birthday in the following format: MM/DD/YYYY. Note that the Birthday gem only covers birthdays between 1901 and 2018."
