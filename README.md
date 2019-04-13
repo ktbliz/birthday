@@ -2,6 +2,11 @@
 
 The Birthday gems scrapes fun facts on birthdays between 1901 and 2018, including: days until next birthday, number of days since birth, gemstone, western zodiac sign, eastern zodiac sign, and famous people also born on the given birthday.
 
+The fun facts scraped from two websites: 
+
+My Birthday Ninja (https://mybirthday.ninja/)
+Who2 Biographies (https://www.who2.com/)
+
 ## Installation
 
 Add this line to your application's Gemfile:
